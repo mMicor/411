@@ -1,0 +1,7 @@
+D:\Uddannelse\Uni\Projekter\P4 - Digital semester\DigitalSemester\I2C_test.cydsn\I2C_test.cyprj|a8c4e3c2-0333-44cb-9892-fce4ecd51dab
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|38049c53-542f-4a68-8d73-081b07ef3e56
+C:\Users\Sylve\OneDrive\Dokumenter\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|8465c603-538d-4fd8-8ae9-7157e9c9c26b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|149fb702-9d9f-41e9-a63e-1dc0a3ceb611
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8217a811-b153-431c-a064-c428ec5c1748
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8bf5024c-f35f-4b50-a4aa-568bef0a42ce
+D:\Uddannelse\Uni\Projekter\P4 - Digital semester\DigitalSemester\FreeRTOS_test.cydsn\FreeRTOS_test.cyprj|89fdfe91-fe07-4b50-a82d-9fc947859dcc
