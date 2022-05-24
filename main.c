@@ -84,20 +84,17 @@ uint8 ReadBytesFromSlave(uint8 slaveAddress, uint8 registerAddress, uint16* wrDa
         GyroXYZ[i]=((SensorDrop[j+GYRO_ARRAY_OFFSET_H]<< HIGH_BYTE_OFFSET)|SensorDrop[j+GYRO_ARRAY_OFFSET_L]);
     }
     
-    Polling_timer_ReadStatusRegister(); // reads the status register to clear interrupt
+    Sampling_timer_ReadStatusRegister(); // reads the status register to clear interrupt
 }    
     
 int main(void)
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-        
-    UART_Start();
     
     /* Initialization/startup code */
     Master_Start();                         // Initialize I2C component
     Poll_intr_StartEx(DATA_polling);        // ISR start call
-    Polling_timer_Start();                  // Timer for periodic interrupt
-    CySysTickStart();
+    Sampling_timer_Start();                  // Timer for periodic interrupt
     
     /* Infinite loop  */
     for(;;)
@@ -143,12 +140,6 @@ int main(void)
             accelX = accelX / naccel;
             accelY = accelY / naccel;
             accelZ = accelZ / naccel;
-        
-            // UART info to transmit
-            txX = accelX;
-            txY = accelY;
-            txZ = accelZ;
-            
             
             //  Euler angle from accel
             roll = atan2 (-accelX ,( sqrt((accelY * accelY) + (accelZ * accelZ))));
@@ -197,10 +188,6 @@ int main(void)
             rollLim = abs(filtered_roll);
             pitchLim = abs(filtered_pitch);
             
-            // UART TX variables
-            txRoll = rollLim;
-            txPitch = pitchLim;
-            
             // Offset to generate values form 0-180 instead of +-90
             if(accelZ < 0)
             {
@@ -218,23 +205,14 @@ int main(void)
                 }
                 if(rollLim > 85 || pitchLim > 85)
                 {
-                    LED_GREEN_Write(FALSE);
+                  LED_GREEN_Write(FALSE);
                 }
             } 
             if(accLim >= 5)
             {
                 LED_GREEN_Write(FALSE);
             }
-            
-            sysStop=CySysTickGetValue(); // Stop counter for timing
-            LED_BLUE_Write(TRUE);
         }        
-        
-        UART_PutChar(txX);
-        UART_PutChar(txY);
-        UART_PutChar(txZ);
-        UART_PutChar(txRoll);
-        UART_PutChar(txPitch);
         
         #ifdef I2C_DEBUG
         
